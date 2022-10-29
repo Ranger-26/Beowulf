@@ -5,6 +5,7 @@
         None,
         Following,
         Attacking1,
+        Attacking2,
         Dead
     }
 }

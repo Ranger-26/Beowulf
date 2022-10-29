@@ -20,7 +20,7 @@ namespace AI
             //roar
             animator = GetComponent<Animator>();
             Health = GetComponent<GrendelHealth>();
-            SetState(GrendelState.Following);
+            SetState(GrendelState.Attacking1);
         }
 
         private void Update()
@@ -66,8 +66,13 @@ namespace AI
                     Debug.Log("Setting attack 1 triggger");
                     animator.SetTrigger("Attack1");
                     break;
+                case GrendelState.Attacking2:
+                    Debug.Log("Setting attack 2 triggger");
+                    State = GrendelState.Attacking2;
+                    animator.SetTrigger("Attack2");
+                    break;
                 case GrendelState.Dead:
-                    State = GrendelState.Attacking1;
+                    State = GrendelState.Dead;
                     animator.SetTrigger("Dead");
                     break;
             }
