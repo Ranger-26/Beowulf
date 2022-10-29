@@ -20,7 +20,7 @@ namespace AI
             //roar
             animator = GetComponent<Animator>();
             Health = GetComponent<GrendelHealth>();
-            SetState(GrendelState.Attacking1);
+            SetState(GrendelState.Following);
         }
 
         private void Update()
@@ -35,12 +35,12 @@ namespace AI
                 float distance = Vector3.Distance(transform.position, target.position);
                 if (Math.Abs(distance) > 5)
                 {
-                    Debug.Log(Math.Abs(distance));
                     var position = transform.position;
                     var position1 = target.position;
                     position = Vector3.MoveTowards(position, position1, MoveSpeed * Time.deltaTime);
                     transform.position = position;
-                    transform.rotation = Quaternion.LookRotation(position1 - position, Vector3.up);
+                    Quaternion q = Quaternion.LookRotation(position1 - position, Vector3.up);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, q, 2);
                 }
             }
         }
@@ -49,6 +49,7 @@ namespace AI
         {
             if (collision.collider.CompareTag("Player"))
             {
+                Debug.Log("Player collided with grendel!");
                 //hurt player if player touches grendel
             }
         }

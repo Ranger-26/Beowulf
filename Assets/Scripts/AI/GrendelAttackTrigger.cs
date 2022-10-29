@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace AI
@@ -14,8 +15,10 @@ namespace AI
 
         public void OnTriggerEnter(Collider other)
         {
-            //attack with swipe
-            //knockback player
+            if (other.CompareTag("Player"))
+            {
+                _grendel.SetState(GrendelState.Attacking1);
+            }
         }
 
         public void OnTriggerStay(Collider other)
@@ -23,9 +26,10 @@ namespace AI
             //
         }
 
-        public void OnTriggerExit(Collider other)
+        public IEnumerator OnTriggerExit(Collider other)
         {
-            
+            yield return new WaitForSeconds(3f);
+            _grendel.SetState(GrendelState.Following);
         }
     }
 }
