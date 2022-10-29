@@ -40,7 +40,7 @@ namespace AI
                     position = Vector3.MoveTowards(position, position1, MoveSpeed * Time.deltaTime);
                     transform.position = position;
                     Quaternion q = Quaternion.LookRotation(position1 - position, Vector3.up);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, q, 2);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, q, 0.4f);
                 }
             }
         }
@@ -49,16 +49,24 @@ namespace AI
         {
             if (collision.collider.CompareTag("Player"))
             {
-                Debug.Log("Player collided with grendel!");
                 //hurt player if player touches grendel
             }
         }
-        
+
+        private void OnCollisionStay(Collision collisionInfo)
+        {
+            if (collisionInfo.collider.CompareTag("Player"))
+            {
+                //keep damaging player
+            }
+        }
+
         public void SetState(GrendelState state)
         {
             switch (state)
             {
                 case GrendelState.Following:
+                    Debug.Log("Setting follow triggger");
                     State = GrendelState.Following;
                     animator.SetTrigger("Follow");
                     break;
@@ -72,7 +80,13 @@ namespace AI
                     State = GrendelState.Attacking2;
                     animator.SetTrigger("Attack2");
                     break;
+                case GrendelState.Cooldown:
+                    Debug.Log("Setting cooldown trigger!");
+                    State = GrendelState.Cooldown;
+                    animator.SetTrigger("Cooldown");
+                    break;
                 case GrendelState.Dead:
+                    Debug.Log("Setting dead triggger");
                     State = GrendelState.Dead;
                     animator.SetTrigger("Dead");
                     break;

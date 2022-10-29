@@ -23,11 +23,12 @@ namespace AI
 
         public void OnTriggerStay(Collider other)
         {
-            //
+            
         }
 
         public IEnumerator OnTriggerExit(Collider other)
         {
+            _grendel.SetState(GrendelState.Cooldown);
             yield return new WaitForSeconds(3f);
             _grendel.SetState(GrendelState.Following);
         }
