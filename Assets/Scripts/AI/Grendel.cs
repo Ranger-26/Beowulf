@@ -57,7 +57,7 @@ namespace AI
             var position = transform.position;
             var position1 = target.position;
             position = Vector3.MoveTowards(position, position1, MoveSpeed * Time.fixedDeltaTime);
-            if (State == GrendelState.Following || distance*distance > 25)
+            if (State == GrendelState.Following || (distance*distance > 25 && State == GrendelState.Attacking))
             {
 
                 // 
@@ -101,7 +101,7 @@ namespace AI
                 case GrendelState.Dead:
                     Debug.Log("Setting dead triggger");
                     State = GrendelState.Dead;
-                    animator.SetTrigger("Dead");
+                    animator.SetTrigger("Die");
                     break;
             }
         }

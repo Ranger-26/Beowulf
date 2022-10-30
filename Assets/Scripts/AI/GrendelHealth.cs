@@ -9,6 +9,20 @@ namespace AI
         
         private int _health;
 
+        public static GrendelHealth Instance;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+        }
+
         public static event Action<int, int> OnGrendelHurt;
 
         public static event Action OnGrendelDie;
@@ -16,6 +30,7 @@ namespace AI
         private void Start()
         {
             _grendel = GetComponent<Grendel>();
+            _health = 100;
             OnGrendelDie += OnDie;
         }
 
@@ -24,7 +39,7 @@ namespace AI
             OnGrendelDie -= OnDie;
         }
 
-        public void RemoveHealth(int damage, int newamount)
+        public void RemoveHealth(int damage)
         {
             _health -= damage;
             OnGrendelHurt?.Invoke(damage, _health);
@@ -33,7 +48,7 @@ namespace AI
                 OnGrendelDie?.Invoke();
             }
         }
-
+        
         public void OnDie()
         {
             //play die sound effect
