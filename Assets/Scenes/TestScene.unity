@@ -136,6 +136,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 94632661, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: Damage
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 1815915716, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: m_Radius
       value: 2
@@ -347,7 +351,7 @@ PrefabInstance:
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.43
+      value: -20.73
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05,
         type: 3}
