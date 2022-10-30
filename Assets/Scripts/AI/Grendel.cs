@@ -32,16 +32,20 @@ namespace AI
 
             if (State == GrendelState.Following)
             {
-                float distance = Vector3.Distance(transform.position, target.position);
-                if (Math.Abs(distance) > 5)
-                {
+                 float distance = (transform.position-target.position).sqrMagnitude;
+                 if (distance*distance > 25)
+                 {
                     var position = transform.position;
                     var position1 = target.position;
                     position = Vector3.MoveTowards(position, position1, MoveSpeed * Time.deltaTime);
                     transform.position = position;
                     Quaternion q = Quaternion.LookRotation(position1 - position, Vector3.up);
                     transform.rotation = Quaternion.Slerp(transform.rotation, q, 0.4f);
-                }
+                 }
+                 else
+                 {  
+                     //SetState(GrendelState.Attacking1);
+                 }
             }
         }
 

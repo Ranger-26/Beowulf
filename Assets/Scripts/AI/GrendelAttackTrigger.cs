@@ -23,13 +23,17 @@ namespace AI
 
         public void OnTriggerStay(Collider other)
         {
-            
+            if (other.CompareTag("Player"))
+            {
+                if (_grendel.State != GrendelState.Attacking1)
+                {
+                    _grendel.SetState(GrendelState.Attacking1);
+                }
+            }
         }
 
-        public IEnumerator OnTriggerExit(Collider other)
+        public void OnTriggerExit(Collider other)
         {
-            _grendel.SetState(GrendelState.Cooldown);
-            yield return new WaitForSeconds(3f);
             _grendel.SetState(GrendelState.Following);
         }
     }

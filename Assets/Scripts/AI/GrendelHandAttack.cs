@@ -11,7 +11,7 @@ namespace AI
             {
                 Debug.Log("Attacking player!");
                 //damage, sound
-                //knockback
+                other.GetComponent<Rigidbody>().AddRelativeForce(5000 * Vector3.up + Vector3.right);
             }
         }
     }

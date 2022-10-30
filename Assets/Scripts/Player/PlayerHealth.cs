@@ -7,6 +7,20 @@ namespace Player
     {
         private int _health;
 
+        public static PlayerHealth Instance;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+        }
+
         public static event Action<int> OnHealthChange;
 
         public static event Action OnPlayerDie; 
