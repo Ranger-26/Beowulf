@@ -12,7 +12,7 @@ namespace AI
             {
                 Debug.Log("Grendel being damaged.");
                 GrendelHealth.Instance.RemoveHealth(Damage);
-                other.gameObject.GetComponent<Rigidbody>().AddForce(-50 * Vector3.up, ForceMode.Impulse);
+                other.gameObject.GetComponent<Rigidbody>().AddForce(10 * Vector3.up, ForceMode.Impulse);
             }
         }
     }
