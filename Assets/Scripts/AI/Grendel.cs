@@ -52,11 +52,12 @@ namespace AI
             //if certain distance attack
             //if certain health, retreat
             //spit attack on chance
-            if (target == null) return;
+            if (target == null || State == GrendelState.Dead) return;
             float distance = (transform.position-target.position).sqrMagnitude;
             var position = transform.position;
             var position1 = target.position;
-            position = Vector3.MoveTowards(position, position1, MoveSpeed * Time.fixedDeltaTime);
+            Vector3 moveto = new Vector3(position1.x, 0, position1.z);
+            position = Vector3.MoveTowards(position, moveto, MoveSpeed * Time.fixedDeltaTime);
             if (State == GrendelState.Following || (distance*distance > 25 && State == GrendelState.Attacking))
             {
 
@@ -81,6 +82,7 @@ namespace AI
 
         public void SetState(GrendelState state)
         {
+            if (State == GrendelState.Dead) return;
             switch (state)
             {
                 case GrendelState.Following:
@@ -105,5 +107,7 @@ namespace AI
                     break;
             }
         }
+        
+        
     }
 }
