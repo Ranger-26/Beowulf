@@ -7,11 +7,17 @@ namespace AI
     {
         public void OnTriggerEnter(Collider other)
         {
+            if (Grendel.Instance.State != GrendelState.Attacking)
+            {
+                return;
+            }
             if (other.CompareTag("Player"))
             {
                 Debug.Log("Attacking player!");
                 //damage, sound
-                other.GetComponent<Rigidbody>().AddRelativeForce(5000 * Vector3.up + Vector3.right);
+
+                var transform1 = other.transform;
+                other.gameObject.GetComponent<Rigidbody>().AddForce(-5000 * transform1.forward);
             }
         }
     }

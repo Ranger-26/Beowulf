@@ -4,8 +4,7 @@
     {
         None,
         Following,
-        Attacking1,
-        Attacking2,
+        Attacking,
         Cooldown,
         Dead
     }

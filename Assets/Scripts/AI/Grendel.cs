@@ -15,6 +15,21 @@ namespace AI
         public float MoveSpeed = 5f;
 
         public GrendelHealth Health;
+
+        public static Grendel Instance;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+        }
+
         private void Start()
         {
             //roar
@@ -39,8 +54,7 @@ namespace AI
                     var position1 = target.position;
                     position = Vector3.MoveTowards(position, position1, MoveSpeed * Time.deltaTime);
                     transform.position = position;
-                    Quaternion q = Quaternion.LookRotation(position1 - position, Vector3.up);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, q, 0.4f);
+                    transform.rotation = Quaternion.LookRotation(position1 - position, Vector3.up);
                  }
                  else
                  {  
@@ -49,6 +63,7 @@ namespace AI
             }
         }
 
+        
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.CompareTag("Player"))
@@ -74,15 +89,10 @@ namespace AI
                     State = GrendelState.Following;
                     animator.SetTrigger("Follow");
                     break;
-                case GrendelState.Attacking1:
-                    State = GrendelState.Attacking1;
+                case GrendelState.Attacking:
+                    State = GrendelState.Attacking;
                     Debug.Log("Setting attack 1 triggger");
                     animator.SetTrigger("Attack1");
-                    break;
-                case GrendelState.Attacking2:
-                    Debug.Log("Setting attack 2 triggger");
-                    State = GrendelState.Attacking2;
-                    animator.SetTrigger("Attack2");
                     break;
                 case GrendelState.Cooldown:
                     Debug.Log("Setting cooldown trigger!");

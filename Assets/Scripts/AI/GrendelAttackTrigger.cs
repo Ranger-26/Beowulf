@@ -17,7 +17,7 @@ namespace AI
         {
             if (other.CompareTag("Player"))
             {
-                _grendel.SetState(GrendelState.Attacking1);
+                _grendel.SetState(GrendelState.Attacking);
             }
         }
 
@@ -25,9 +25,9 @@ namespace AI
         {
             if (other.CompareTag("Player"))
             {
-                if (_grendel.State != GrendelState.Attacking1)
+                if (_grendel.State != GrendelState.Attacking)
                 {
-                    _grendel.SetState(GrendelState.Attacking1);
+                    _grendel.SetState(GrendelState.Attacking);
                 }
             }
         }
