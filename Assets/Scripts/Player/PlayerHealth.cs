@@ -6,7 +6,7 @@ namespace Player
     public class PlayerHealth : MonoBehaviour
     {
         [SerializeField]
-        private int _health;
+        private float _health;
 
         public static PlayerHealth Instance;
 
@@ -27,11 +27,11 @@ namespace Player
             AddHealth(100);
         }
 
-        public static event Action<int> OnHealthChange;
+        public static event Action<float> OnHealthChange;
 
         public static event Action OnPlayerDie;
 
-        public void RemoveHealth(int amount)
+        public void RemoveHealth(float amount)
         {
             _health -= amount;
             OnHealthChange?.Invoke(_health);

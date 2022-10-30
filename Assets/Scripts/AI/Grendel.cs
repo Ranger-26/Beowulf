@@ -14,11 +14,15 @@ namespace AI
 
         public float MoveSpeed = 5f;
 
+        public float RotateSpeed = 5f;
+        
         public GrendelHealth Health;
 
         public static Grendel Instance;
 
         private Rigidbody _rigidbody;
+
+        public bool ShouldRotate;
         
         private void Awake()
         {
@@ -38,6 +42,7 @@ namespace AI
             animator = GetComponent<Animator>();
             Health = GetComponent<GrendelHealth>();
             _rigidbody = GetComponent<Rigidbody>();
+            ShouldRotate = true;
             SetState(GrendelState.Following);
         }
 
@@ -47,42 +52,30 @@ namespace AI
             //if certain distance attack
             //if certain health, retreat
             //spit attack on chance
-
-            if (State == GrendelState.Following)
+            if (target == null) return;
+            float distance = (transform.position-target.position).sqrMagnitude;
+            var position = transform.position;
+            var position1 = target.position;
+            position = Vector3.MoveTowards(position, position1, MoveSpeed * Time.fixedDeltaTime);
+            if (State == GrendelState.Following || distance*distance > 25)
             {
-                if (target == null) return;
-                
-                 float distance = (transform.position-target.position).sqrMagnitude;
-                 if (distance*distance > 25)
-                 {
-                    var position = transform.position;
-                    var position1 = target.position;
-                    position = Vector3.MoveTowards(position, position1, MoveSpeed * Time.fixedDeltaTime);
+
+                // 
+                 //if ()
+                 //{
+                    
                     _rigidbody.MovePosition(position);
-                    _rigidbody.MoveRotation( 
-                        Quaternion.LookRotation(position1 - position, Vector3.up));
-                 }
-                 else
-                 {  
-                     //SetState(GrendelState.Attacking1);
-                 }
+                    Quaternion q = Quaternion.RotateTowards(transform.rotation,
+                        Quaternion.LookRotation(position1 - position, Vector3.up), RotateSpeed * Time.fixedDeltaTime);
+                    _rigidbody.MoveRotation(q);
+                 //}
+                // else
             }
-        }
-
-        
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.collider.CompareTag("Player"))
+            else if (State == GrendelState.Attacking && ShouldRotate)
             {
-                //hurt player if player touches grendel
-            }
-        }
-
-        private void OnCollisionStay(Collision collisionInfo)
-        {
-            if (collisionInfo.collider.CompareTag("Player"))
-            {
-                //keep damaging player
+                Quaternion q = Quaternion.RotateTowards(transform.rotation,
+                    Quaternion.LookRotation(position1 - position, Vector3.up), RotateSpeed * 1.2f * Time.fixedDeltaTime);
+                _rigidbody.MoveRotation(q);
             }
         }
 

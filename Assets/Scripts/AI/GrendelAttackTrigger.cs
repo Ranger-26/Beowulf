@@ -9,6 +9,8 @@ namespace AI
     {
         private Grendel _grendel;
 
+        public float Cooldown;
+        
         private void Start()
         {
             _grendel = GetComponentInParent<Grendel>();
@@ -19,25 +21,32 @@ namespace AI
             if (other.CompareTag("Player"))
             {
                 _grendel.SetState(GrendelState.Attacking);
-                PlayerHealth.Instance.RemoveHealth(5);
             }
         }
 
         public void OnTriggerStay(Collider other)
         {
+            /*
             if (other.CompareTag("Player"))
             {
                 if (_grendel.State != GrendelState.Attacking)
                 {
                     _grendel.SetState(GrendelState.Attacking);
-                    PlayerHealth.Instance.RemoveHealth(2);
                 }
             }
+            */
         }
 
-        public void OnTriggerExit(Collider other)
+        public IEnumerator OnTriggerExit(Collider other)
         {
-            _grendel.SetState(GrendelState.Following);
+            if (other.CompareTag("Player"))
+            {
+                //add logic based on grendel health
+                Grendel.Instance.ShouldRotate = false;
+                yield return new WaitForSeconds(Cooldown);
+                _grendel.SetState(GrendelState.Following);
+                Grendel.Instance.ShouldRotate = true;
+            }
         }
     }
 }

@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f11da1b5bb4ae9b5a406bbca77fe79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BaseHandDamage: 50
 --- !u!1 &1815915714
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +103,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 2
   m_Center: {x: 0.42765352, y: 0, z: 0.43095013}
 --- !u!114 &1815915717
 MonoBehaviour:
@@ -116,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5be1dac0e554224bc366a7b6be6c499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cooldown: 0
 --- !u!1 &2770400504287924264
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,6 +827,7 @@ GameObject:
   - component: {fileID: 2770400504288114492}
   - component: {fileID: 1426590693}
   - component: {fileID: 1426590694}
+  - component: {fileID: 1548879294}
   m_Layer: 0
   m_Name: Grendel
   m_TagString: Untagged
@@ -886,7 +889,9 @@ MonoBehaviour:
   animator: {fileID: 2770400504280714626}
   State: 0
   MoveSpeed: 5
+  RotateSpeed: 30
   Health: {fileID: 0}
+  ShouldRotate: 0
 --- !u!54 &1426590693
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -901,7 +906,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1426590694
 BoxCollider:
@@ -914,8 +919,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5099137, y: 0.82893866, z: 1.7570618}
-  m_Center: {x: 0.21745157, y: 0.39756164, z: 0.15931474}
+  m_Size: {x: 1.4889783, y: 0.79958946, z: 1.5385815}
+  m_Center: {x: 0.22792116, y: 0.41223627, z: 0.107043765}
+--- !u!114 &1548879294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2770400504287953202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75af574429784d2c9054f3b82373195f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2770400504287953210
 GameObject:
   m_ObjectHideFlags: 0

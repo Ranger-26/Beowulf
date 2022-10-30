@@ -130,37 +130,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1426590693, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: m_Size.x
-      value: 1.4889783
+      value: 1.4572748
       objectReference: {fileID: 0}
     - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: m_Size.y
-      value: 0.79958946
+      value: 0.7551031
       objectReference: {fileID: 0}
     - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: m_Size.z
-      value: 1.5385815
+      value: 1.540904
       objectReference: {fileID: 0}
     - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: m_Center.x
-      value: 0.22792116
+      value: 0.21206938
       objectReference: {fileID: 0}
     - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: m_Center.y
-      value: 0.41223627
+      value: 0.43447945
       objectReference: {fileID: 0}
     - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: m_Center.z
-      value: 0.107043765
+      value: 0.10820494
       objectReference: {fileID: 0}
-    - target: {fileID: 1815915716, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
-      propertyPath: m_Radius
-      value: 1.75
+    - target: {fileID: 1815915717, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: Cooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2770400504287646194, guid: 8f134914040894e49b81fe83781c9c75,
         type: 3}
@@ -360,6 +356,11 @@ PrefabInstance:
     - target: {fileID: 1930032596, guid: 306754914defc264cbaa3e36aae6708d, type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465747745477888515, guid: 306754914defc264cbaa3e36aae6708d,
+        type: 3}
+      propertyPath: _jumpForce
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2465747745945897722, guid: 306754914defc264cbaa3e36aae6708d,
         type: 3}
@@ -579,6 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49be8b7040a27342809de7c32bcdc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 0
 --- !u!1 &1697602930
 GameObject:
   m_ObjectHideFlags: 0
