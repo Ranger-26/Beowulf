@@ -17,7 +17,7 @@ namespace AI
                 //damage, sound
 
                 var transform1 = other.transform;
-                other.gameObject.GetComponent<Rigidbody>().AddForce(-5000 * transform1.forward);
+                other.gameObject.GetComponent<Rigidbody>().AddForce(-50 * transform1.forward + Vector3.up, ForceMode.Impulse);
             }
         }
     }

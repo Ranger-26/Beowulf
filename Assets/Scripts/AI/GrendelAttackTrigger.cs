@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Player;
 using UnityEngine;
 
 namespace AI
@@ -18,6 +19,7 @@ namespace AI
             if (other.CompareTag("Player"))
             {
                 _grendel.SetState(GrendelState.Attacking);
+                PlayerHealth.Instance.RemoveHealth(5);
             }
         }
 
@@ -28,6 +30,7 @@ namespace AI
                 if (_grendel.State != GrendelState.Attacking)
                 {
                     _grendel.SetState(GrendelState.Attacking);
+                    PlayerHealth.Instance.RemoveHealth(2);
                 }
             }
         }

@@ -18,6 +18,8 @@ namespace AI
 
         public static Grendel Instance;
 
+        private Rigidbody _rigidbody;
+        
         private void Awake()
         {
             if (Instance == null)
@@ -35,10 +37,11 @@ namespace AI
             //roar
             animator = GetComponent<Animator>();
             Health = GetComponent<GrendelHealth>();
+            _rigidbody = GetComponent<Rigidbody>();
             SetState(GrendelState.Following);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             //follow player until certain distance
             //if certain distance attack
@@ -47,14 +50,17 @@ namespace AI
 
             if (State == GrendelState.Following)
             {
+                if (target == null) return;
+                
                  float distance = (transform.position-target.position).sqrMagnitude;
                  if (distance*distance > 25)
                  {
                     var position = transform.position;
                     var position1 = target.position;
-                    position = Vector3.MoveTowards(position, position1, MoveSpeed * Time.deltaTime);
-                    transform.position = position;
-                    transform.rotation = Quaternion.LookRotation(position1 - position, Vector3.up);
+                    position = Vector3.MoveTowards(position, position1, MoveSpeed * Time.fixedDeltaTime);
+                    _rigidbody.MovePosition(position);
+                    _rigidbody.MoveRotation( 
+                        Quaternion.LookRotation(position1 - position, Vector3.up));
                  }
                  else
                  {  
