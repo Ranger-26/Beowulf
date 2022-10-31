@@ -51,6 +51,12 @@ namespace Player
             }
         }
 
+        public bool IsPunching()
+        {
+            return _animator.GetCurrentAnimatorStateInfo(1).IsName("PunchLeft") ||
+                   _animator.GetCurrentAnimatorStateInfo(1).IsName("PunchRight");
+        }
+        
         public IEnumerator ResetPunchRoutine()
         {
             _canPunch = false;

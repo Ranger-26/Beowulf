@@ -52,7 +52,7 @@ namespace AI
             //if certain distance attack
             //if certain health, retreat
             //spit attack on chance
-            if (target == null || State == GrendelState.Dead) return;
+            if (target == null || State == GrendelState.Dead || State == GrendelState.None) return;
             float distance = (transform.position-target.position).sqrMagnitude;
             var position = transform.position;
             var position1 = target.position;
