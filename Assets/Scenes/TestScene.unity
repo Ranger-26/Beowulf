@@ -337,7 +337,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 162007147, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: BaseDamage
-      value: 60
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727175179, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: BaseDamage
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1727175180, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_Radius
