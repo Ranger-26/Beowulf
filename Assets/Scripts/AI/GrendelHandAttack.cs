@@ -20,7 +20,7 @@ namespace AI
                 var transform1 = other.transform;
                 var distance = Mathf.Abs(Vector3.Distance(transform.root.position, transform1.position));
                 PlayerHealth.Instance.RemoveHealth(BaseHandDamage/distance);
-                //other.gameObject.GetComponent<Rigidbody>().AddForce(-50 * transform1.forward + Vector3.up, ForceMode.Impulse);
+                other.gameObject.GetComponent<Rigidbody>().AddForce(-500 * transform1.forward, ForceMode.Impulse);
             }
         }
     }
