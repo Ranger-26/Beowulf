@@ -16,17 +16,43 @@ namespace Player
 
         private Animator _animator;
         
+        [SerializeField]
+        private bool _canPunch;
+
+        public float PunchCooldown = 2f;
+        
         private void Start () {
             _rig = GetComponent<Rigidbody> ();
             _animator = GetComponent<Animator>();
             _rig.freezeRotation = true;
+            _canPunch = true;
         }
+
+        public void ResetPunch()
+        {
+            Debug.Log($"Reset punch being called. Current value {_canPunch}");
+            _canPunch = !_canPunch;
+        }
+        
         private void Update () {
             _input = new Vector2 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
             
             if (Input.GetButtonDown ("Jump") && Grounded) {
                 _animator.SetTrigger("Jump");
                 _rig.AddForce (Vector3.up * _jumpForce, ForceMode.Impulse);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) && _canPunch)
+            {
+                _animator.Play("PunchLeft");
+                ResetPunch();
+                Invoke(nameof(ResetPunch), PunchCooldown);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse1) && _canPunch)
+            {
+                _animator.Play("PunchRight");
+                Invoke(nameof(ResetPunch), PunchCooldown);
             }
         }
         private void FixedUpdate () {
@@ -53,12 +79,10 @@ namespace Player
                 }
                 else if (_input.x < 0)
                 {
-                    Debug.Log(_input.x);
                     _animator.SetTrigger("RunLeft");
                 }
                 else if (_input.x > 0)
                 {
-                    Debug.Log(_input.x);
                     _animator.SetTrigger("RunRight");
                 }
             }
