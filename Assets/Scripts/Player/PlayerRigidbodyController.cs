@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Player
@@ -9,6 +10,7 @@ namespace Player
         public float _speed = 6;
         public float _jumpForce = 6;
         private Rigidbody _rig;
+        [SerializeField]
         private Vector2 _input;
         private Vector3 _movementVector;
         public Transform Orientation;
@@ -28,12 +30,6 @@ namespace Player
             _canPunch = true;
         }
 
-        public void ResetPunch()
-        {
-            Debug.Log($"Reset punch being called. Current value {_canPunch}");
-            _canPunch = !_canPunch;
-        }
-        
         private void Update () {
             _input = new Vector2 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
             
@@ -45,17 +41,24 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.Mouse0) && _canPunch)
             {
                 _animator.Play("PunchLeft");
-                ResetPunch();
-                Invoke(nameof(ResetPunch), PunchCooldown);
+                StartCoroutine(ResetPunchRoutine());
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse1) && _canPunch)
             {
                 _animator.Play("PunchRight");
-                Invoke(nameof(ResetPunch), PunchCooldown);
+                StartCoroutine(ResetPunchRoutine());
             }
         }
-        private void FixedUpdate () {
+
+        public IEnumerator ResetPunchRoutine()
+        {
+            _canPunch = false;
+            yield return new WaitForSeconds(PunchCooldown);
+            _canPunch = true;
+        }
+        
+        private void FixedUpdate() {
             _movementVector =
                 Orientation.transform.TransformDirection(new Vector3(_input.x * _speed, _rig.velocity.y, _input.y * _speed));
             if (_input.x == 0 && _input.y == 0)
@@ -79,6 +82,7 @@ namespace Player
                 }
                 else if (_input.x < 0)
                 {
+                    Debug.Log("Setting trigger to run left.");
                     _animator.SetTrigger("RunLeft");
                 }
                 else if (_input.x > 0)
