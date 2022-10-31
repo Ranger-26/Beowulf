@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -44,7 +45,7 @@ namespace AI
             Health = GetComponent<GrendelHealth>();
             _rigidbody = GetComponent<Rigidbody>();
             ShouldRotate = true;
-            //SetState(GrendelState.Following);
+            SetState(GrendelState.Following);
         }
 
         private void FixedUpdate()
@@ -109,11 +110,13 @@ namespace AI
             }
         }
 
-        public void OnCollisionStay(Collision collisionInfo)
+        public IEnumerator OnCollisionStay(Collision collisionInfo)
         {
             if (collisionInfo.collider.CompareTag("Player"))
             {
-                PlayerHealth.Instance.RemoveHealth(1f);
+                //TODO: Make this run every few seconds
+                yield return new WaitForSeconds(3f);
+                PlayerHealth.Instance.RemoveHealth(2f);
             }
         }
     }

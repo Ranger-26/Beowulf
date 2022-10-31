@@ -38,7 +38,7 @@ namespace Player
             Debug.Log($"New health: {_health}");
             if (_health <= 0)
             {
-                OnPlayerDie?.Invoke();
+                //OnPlayerDie?.Invoke();
                 Destroy(gameObject);
             }
         }
