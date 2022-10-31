@@ -80,19 +80,31 @@ namespace Player
                 _animator.ResetTrigger("Idle");
                 if (_input.y < 0)
                 {
+                    _animator.ResetTrigger("Run");
+                    _animator.ResetTrigger("RunLeft");
+                    _animator.ResetTrigger("RunRight");
                     _animator.SetTrigger("RunBackwards");
                 }
                 else if (_input.y > 0)
                 {
+                    _animator.ResetTrigger("RunBackwards");
+                    _animator.ResetTrigger("RunLeft");
+                    _animator.ResetTrigger("RunRight");
                     _animator.SetTrigger("Run");
                 }
                 else if (_input.x < 0)
                 {
                     Debug.Log("Setting trigger to run left.");
+                    _animator.ResetTrigger("RunBackwards");
+                    _animator.ResetTrigger("Run");
+                    _animator.ResetTrigger("RunRight");
                     _animator.SetTrigger("RunLeft");
                 }
                 else if (_input.x > 0)
                 {
+                    _animator.ResetTrigger("RunBackwards");
+                    _animator.ResetTrigger("RunLeft");
+                    _animator.ResetTrigger("Run");
                     _animator.SetTrigger("RunRight");
                 }
             }
