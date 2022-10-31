@@ -190,11 +190,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grendel
       objectReference: {fileID: 0}
-    - target: {fileID: 2770400504287953202, guid: 8f134914040894e49b81fe83781c9c75,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2770400504288114492, guid: 8f134914040894e49b81fe83781c9c75,
         type: 3}
       propertyPath: target
@@ -324,6 +319,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 162007146, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 162007146, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Center.x
+      value: -0.25695106
+      objectReference: {fileID: 0}
+    - target: {fileID: 162007146, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Center.y
+      value: -0.05373229
+      objectReference: {fileID: 0}
+    - target: {fileID: 162007146, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Center.z
+      value: -0.000000041051077
+      objectReference: {fileID: 0}
+    - target: {fileID: 162007147, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: BaseDamage
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727175180, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727175180, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Center.x
+      value: -0.25695089
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727175180, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Center.y
+      value: 0.09559371
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727175180, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Center.z
+      value: -0.0000000319721
+      objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05,
         type: 3}
       propertyPath: m_RootOrder
@@ -528,7 +559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1353415502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -625,7 +656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1431995308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -722,7 +753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1587149688
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -917,7 +948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1798375690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1014,7 +1045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1817824109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1111,7 +1142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1842343901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1208,7 +1239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &2018781695
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1305,7 +1336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &2039659197
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1402,7 +1433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &2072223764
 BoxCollider:
   m_ObjectHideFlags: 0
