@@ -110,14 +110,41 @@ namespace AI
             }
         }
 
-        public IEnumerator OnCollisionStay(Collision collisionInfo)
+        private float timer;
+
+        private float totalTime;
+        
+        public float collisionDamageDelay = 3f;
+
+        public float collisionDamage = 2f;
+        public void OnCollisionStay(Collision collisionInfo)
         {
+            if (State == GrendelState.Dead) return;
+            
+            totalTime += Time.deltaTime;
+            if (collisionDamageDelay > 0.8f)
+            {
+                collisionDamageDelay -= Time.deltaTime;
+            }
+            //TODO: Increase damage based on delta time
             if (collisionInfo.collider.CompareTag("Player"))
             {
-                //TODO: Make this run every few seconds
-                yield return new WaitForSeconds(3f);
-                PlayerHealth.Instance.RemoveHealth(2f);
+                Debug.Log("Player in grendel!");
+                if (timer >= collisionDamageDelay)
+                {
+                    PlayerHealth.Instance.RemoveHealth(collisionDamage * totalTime);
+                    timer = 0;
+                }
+                else
+                {
+                    timer += Time.deltaTime;
+                }
             }
+        }
+
+        public void OnCollisionExit(Collision other)
+        {
+            timer = 0;
         }
     }
 }

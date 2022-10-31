@@ -19,11 +19,8 @@ namespace Player
         {
             if (!other.CompareTag("Grendel")) return;
             
-            if (!Controller.IsPunching())
-            {
-                Debug.Log("Touching grendel but not punching");
-            }
-            else
+            
+            if (Controller.IsPunching())
             {
                 var distance = Mathf.Abs(Vector3.Distance(transform.position, other.transform.position));
                 GrendelHealth.Instance.RemoveHealth((int)(BaseDamage/distance));
