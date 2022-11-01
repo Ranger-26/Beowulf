@@ -33,13 +33,14 @@ namespace Player
 
         public void RemoveHealth(float amount)
         {
+            if (_health < 0) return;
             _health -= amount;
             OnHealthChange?.Invoke(_health);
             Debug.Log($"New health: {_health}");
             if (_health <= 0)
             {
-                //OnPlayerDie?.Invoke();
-                Destroy(gameObject);
+                OnPlayerDie?.Invoke();
+                Destroy(gameObject, 5f);
             }
         }
 
