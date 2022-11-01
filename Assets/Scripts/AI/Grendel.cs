@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Player;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,6 +26,11 @@ namespace AI
         private Rigidbody _rigidbody;
 
         public bool ShouldRotate;
+
+        private AudioSource _audioSource;
+        
+        [Header("Sounds")] 
+        public AudioClip RoarSound;
         
         private void Awake()
         {
@@ -38,14 +44,27 @@ namespace AI
             }
         }
 
+        public bool Landed;
+        
         private void Start()
         {
             //roar
+            _audioSource = GetComponent<AudioSource>();
             animator = GetComponent<Animator>();
             Health = GetComponent<GrendelHealth>();
             _rigidbody = GetComponent<Rigidbody>();
             ShouldRotate = true;
             SetState(GrendelState.Following);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.collider.CompareTag("Ground") && !Landed)
+            {
+                _audioSource.SafePlayOneShot(RoarSound, "RoarInitial");
+                //TODO:screen shake, particles
+                Landed = true;
+            }
         }
 
         private void FixedUpdate()

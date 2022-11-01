@@ -891,6 +891,9 @@ MonoBehaviour:
   RotateSpeed: 30
   Health: {fileID: 0}
   ShouldRotate: 0
+  RoarSound: {fileID: 8300000, guid: 51c471696c4d8eb4fb32d4cdd9cc61c8, type: 3}
+  collisionDamageDelay: 3
+  collisionDamage: 2
 --- !u!54 &1426590693
 Rigidbody:
   m_ObjectHideFlags: 0
