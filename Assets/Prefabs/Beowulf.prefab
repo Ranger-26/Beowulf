@@ -1235,7 +1235,7 @@ GameObject:
   - component: {fileID: 1012795309}
   - component: {fileID: 352181117065359897}
   m_Layer: 0
-  m_Name: HumanMale_Character_FREE
+  m_Name: Beowulf
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
