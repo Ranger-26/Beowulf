@@ -10,7 +10,7 @@ public static class Extensions
                 }
                 else
                 {
-                        Debug.Log($"Clip {clipName} is null!");
+                        Debug.LogError($"Clip {clipName} is null!");
                 }
         }
 }
