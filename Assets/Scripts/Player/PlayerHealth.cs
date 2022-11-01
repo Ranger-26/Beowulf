@@ -40,7 +40,6 @@ namespace Player
             if (_health <= 0)
             {
                 OnPlayerDie?.Invoke();
-                Destroy(gameObject, 5f);
             }
         }
 

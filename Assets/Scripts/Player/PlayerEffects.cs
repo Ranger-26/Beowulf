@@ -10,12 +10,28 @@ namespace Player
 
         public AudioClip DieSound;
 
-        private AudioSource _audioSource;
+        public AudioSource AudioSource;
 
         private Animator _animator;
+        
+        public static PlayerEffects Instance;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+        }
+        
+        
         private void Start()
         {
-            _audioSource = GetComponent<AudioSource>();
+            AudioSource = GetComponent<AudioSource>();
             _animator = GetComponent<Animator>();
             PlayerHealth.OnPlayerDie += OnPlayerDie;
         }
@@ -28,7 +44,7 @@ namespace Player
         public void OnPlayerDie()
         {
             _animator.Play("Death");
-            _audioSource.SafePlayOneShot(DieSound);
+            AudioSource.SafePlayOneShot(DieSound, "Death");
         }
     }
 }

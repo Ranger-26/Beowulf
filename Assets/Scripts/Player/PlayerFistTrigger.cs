@@ -10,6 +10,8 @@ namespace Player
 
         public PlayerRigidbodyController Controller;
 
+        public AudioClip PunchHitSound;
+        
         private void Start()
         {
             Controller = GetComponentInParent<PlayerRigidbodyController>();
@@ -23,6 +25,7 @@ namespace Player
             if (Controller.IsPunching())
             {
                 var distance = Mathf.Abs(Vector3.Distance(transform.position, other.transform.position));
+                PlayerEffects.Instance.AudioSource.SafePlayOneShot(PunchHitSound, "PunchHitSound");
                 GrendelHealth.Instance.RemoveHealth((int)(BaseDamage/distance));
                 Debug.Log($"Damaged grendel! {(int)(BaseDamage/distance)}");
             }
