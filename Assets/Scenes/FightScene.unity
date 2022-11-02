@@ -7983,6 +7983,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 43618770, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: GrendelDie
+      value: 
+      objectReference: {fileID: 8300000, guid: bc4d655a010cf0445a6212cac49cf983, type: 3}
+    - target: {fileID: 43618770, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: GrendelDamage
       value: 
       objectReference: {fileID: 0}
