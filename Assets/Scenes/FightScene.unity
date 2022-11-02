@@ -7101,7 +7101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
   YouDiedMusic: {fileID: 8300000, guid: a174fe76b26cc4442b63c1238bd731bc, type: 3}
-  CelebrationMusic: {fileID: 8300000, guid: ced6d7542a51b2d4f8ab8f60b756e3d2, type: 3}
+  CelebrationMusic: {fileID: 8300000, guid: e94f1bd80b7692249863e6d088bd606a, type: 3}
   YouGotHurtSound: {fileID: 0}
 --- !u!4 &2147194121 stripped
 Transform:

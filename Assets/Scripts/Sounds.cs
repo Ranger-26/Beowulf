@@ -12,20 +12,11 @@ public class Sounds : MonoBehaviour
     public AudioClip YouDiedMusic;
 
     public AudioClip CelebrationMusic;
-
-    public AudioClip YouGotHurtSound;
     
     private void Start()
     {
         AudioSource = GetComponent<AudioSource>();
         PlayerHealth.OnPlayerDie += OnPlayerDie;
-        PlayerHealth.OnHealthChange += delegate(float f)
-        {
-            if (f != 100)
-            {
-                AudioSource.SafePlayOneShot(YouGotHurtSound, "DamagePlayerSound");
-            }
-        };
         GrendelHealth.OnGrendelDie += OnGrendelDie;
     }
 
