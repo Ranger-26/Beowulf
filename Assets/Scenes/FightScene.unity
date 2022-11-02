@@ -7993,7 +7993,7 @@ PrefabInstance:
     - target: {fileID: 398866990, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: hitAudioClip
       value: 
-      objectReference: {fileID: 8300000, guid: e989cc91820b3eb429576404f338d14b, type: 3}
+      objectReference: {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
     - target: {fileID: 398866990, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: BaseHandDamage
       value: 30
@@ -8001,7 +8001,7 @@ PrefabInstance:
     - target: {fileID: 1684298096, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: hitAudioClip
       value: 
-      objectReference: {fileID: 8300000, guid: e968c6ef8536cba4e98d5c8f4fdb9ccf, type: 3}
+      objectReference: {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
     - target: {fileID: 1684298096, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: BaseHandDamage
       value: 20
