@@ -50,20 +50,20 @@ namespace AI
         {
             //roar
             _audioSource = GetComponent<AudioSource>();
-            animator = GetComponent<Animator>();
             Health = GetComponent<GrendelHealth>();
             _rigidbody = GetComponent<Rigidbody>();
-            ShouldRotate = true;
-            SetState(GrendelState.Following);
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.CompareTag("Ground") && !Landed)
             {
+                ShouldRotate = true;
+                animator = GetComponent<Animator>();
                 _audioSource.SafePlayOneShot(RoarSound, "RoarInitial");
                 //TODO:screen shake, particles
                 Landed = true;
+                SetState(GrendelState.Following);
             }
         }
 

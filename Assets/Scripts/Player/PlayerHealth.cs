@@ -10,6 +10,8 @@ namespace Player
 
         public static PlayerHealth Instance;
 
+        public bool IsDead;
+        
         private void Awake()
         {
             if (Instance == null)
@@ -39,6 +41,7 @@ namespace Player
             Debug.Log($"New health: {_health}");
             if (_health <= 0)
             {
+                IsDead = true;
                 OnPlayerDie?.Invoke();
             }
         }

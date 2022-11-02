@@ -31,6 +31,7 @@ namespace Player
         }
 
         private void Update () {
+            if (PlayerHealth.Instance != null && PlayerHealth.Instance.IsDead) return;
             _input = new Vector2 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
             
             if (Input.GetButtonDown ("Jump") && Grounded) {
