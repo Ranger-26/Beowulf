@@ -30,8 +30,14 @@ namespace AI
         private AudioSource _audioSource;
         
         [Header("Sounds")] 
-        public AudioClip RoarSound;
+        public AudioClip InitialRoarSound;
+
+        public AudioClip AttackRoar;
+
         
+        
+        public AudioClip DeadRoar;
+
         private void Awake()
         {
             if (Instance == null)
@@ -60,7 +66,7 @@ namespace AI
             {
                 ShouldRotate = true;
                 animator = GetComponent<Animator>();
-                _audioSource.SafePlayOneShot(RoarSound, "RoarInitial");
+                _audioSource.SafePlayOneShot(InitialRoarSound, "RoarInitial");
                 //TODO:screen shake, particles
                 Landed = true;
                 yield return new WaitForSeconds(1f);
