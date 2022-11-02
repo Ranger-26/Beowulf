@@ -1,4 +1,5 @@
 ﻿using System;
+using AI;
 using UnityEngine;
 
 namespace Player
@@ -14,8 +15,16 @@ namespace Player
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            PlayerHealth.OnPlayerDie += OnGameEnd;
+            GrendelHealth.OnGrendelDie += OnGameEnd;
         }
 
+        private void OnDestroy()
+        {
+            PlayerHealth.OnPlayerDie -= OnGameEnd;
+            GrendelHealth.OnGrendelDie -= OnGameEnd;
+        }
+        
         void Update()
         {
             rotX = Input.GetAxis("Mouse Y");
@@ -28,6 +37,12 @@ namespace Player
             Vector3 camRotation = Camera.transform.localEulerAngles;
             camRotation.x -= rotX;
             Camera.transform.localRotation = Quaternion.AngleAxis(camRotation.x, Vector3.right);
+        }
+        
+        public void OnGameEnd()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

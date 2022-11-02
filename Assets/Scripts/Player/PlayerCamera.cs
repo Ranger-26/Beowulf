@@ -1,4 +1,5 @@
 ﻿using System;
+using AI;
 using UnityEngine;
 
 namespace Player
@@ -15,9 +16,12 @@ namespace Player
 
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
+            
         }
+
+        
 
         private void Update()
         {
@@ -32,5 +36,7 @@ namespace Player
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
             Orientation.rotation = Quaternion.Euler(0, yRotation, 0);
         }
+
+        
     }
 }
