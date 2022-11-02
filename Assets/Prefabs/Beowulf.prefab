@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseDamage: 30
   Controller: {fileID: 0}
-  PunchHitSound: {fileID: 0}
+  PunchHitSound: {fileID: 8300000, guid: 0147661c12ea814488259f82d4a4aed8, type: 3}
 --- !u!1 &695807841
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseDamage: 30
   Controller: {fileID: 0}
-  PunchHitSound: {fileID: 0}
+  PunchHitSound: {fileID: 8300000, guid: a91b6eb6aee93de4fa0b41a96fd36c96, type: 3}
 --- !u!1 &90716451578292149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,7 +1322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49be8b7040a27342809de7c32bcdc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
+  PlayerCtlr: {fileID: 0}
   IsDead: 0
 --- !u!114 &1012795305
 MonoBehaviour:
@@ -1343,6 +1343,7 @@ MonoBehaviour:
   Grounded: 0
   _canPunch: 0
   PunchCooldown: 1
+  AudioSource: {fileID: 0}
   PunchSound: {fileID: 8300000, guid: 0e9bca6dd55d7e541a865752da6415f5, type: 3}
 --- !u!114 &1012795308
 MonoBehaviour:
@@ -1465,7 +1466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb4a92802de41bc92943def2f448947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TakeDamage: {fileID: 0}
+  TakeDamage: {fileID: 8300000, guid: 9a62f3fab66aef443a8dbeeb7002266b, type: 3}
   DieSound: {fileID: 8300000, guid: ebd47cad103649c4895ebd2b51a05222, type: 3}
   AudioSource: {fileID: 0}
 --- !u!1 &1789272960074739661

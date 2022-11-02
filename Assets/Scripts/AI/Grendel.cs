@@ -143,16 +143,18 @@ namespace AI
         public float collisionDamage = 2f;
         public void OnCollisionStay(Collision collisionInfo)
         {
-            if (State == GrendelState.Dead) return;
             
-            totalTime += Time.deltaTime;
-            if (collisionDamageDelay > 0.8f)
-            {
-                collisionDamageDelay -= Time.deltaTime;
-            }
+            
             //TODO: Increase damage based on delta time
             if (collisionInfo.collider.CompareTag("Player"))
             {
+                if (State == GrendelState.Dead) return;
+
+                totalTime += Time.deltaTime;
+                if (collisionDamageDelay > 0.8f)
+                {
+                    collisionDamageDelay -= Time.deltaTime;
+                }
                 Debug.Log("Player in grendel!");
                 if (timer >= collisionDamageDelay)
                 {

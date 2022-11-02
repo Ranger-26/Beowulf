@@ -2289,19 +2289,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 162007147, guid: ed402d3da61197e40a5250b54c956f77, type: 3}
-      propertyPath: PunchHitSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 1e3312d22540aa14597a1fb4739f2782, type: 3}
-    - target: {fileID: 1727175179, guid: ed402d3da61197e40a5250b54c956f77, type: 3}
-      propertyPath: PunchHitSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 1e3312d22540aa14597a1fb4739f2782, type: 3}
-    - target: {fileID: 352181117065359897, guid: ed402d3da61197e40a5250b54c956f77,
-        type: 3}
-      propertyPath: TakeDamage
-      value: 
-      objectReference: {fileID: 8300000, guid: 9a62f3fab66aef443a8dbeeb7002266b, type: 3}
     - target: {fileID: 1438546959266459337, guid: ed402d3da61197e40a5250b54c956f77,
         type: 3}
       propertyPath: m_RootOrder
@@ -7998,6 +7985,34 @@ PrefabInstance:
       propertyPath: BaseHandDamage
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: m_Size.x
+      value: 1.62841
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: m_Size.y
+      value: 0.31697488
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: m_Size.z
+      value: 1.3646399
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: m_Center.x
+      value: -0.017302215
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: m_Center.y
+      value: 0.31871557
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426590694, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: m_Center.z
+      value: 0.35920876
+      objectReference: {fileID: 0}
     - target: {fileID: 1684298096, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: hitAudioClip
       value: 
@@ -8103,7 +8118,7 @@ PrefabInstance:
     - target: {fileID: 2770400504288114492, guid: 8f134914040894e49b81fe83781c9c75,
         type: 3}
       propertyPath: collisionDamage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2770400504288114492, guid: 8f134914040894e49b81fe83781c9c75,
         type: 3}
@@ -8113,7 +8128,7 @@ PrefabInstance:
     - target: {fileID: 2770400504288114492, guid: 8f134914040894e49b81fe83781c9c75,
         type: 3}
       propertyPath: collisionDamageDelay
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
