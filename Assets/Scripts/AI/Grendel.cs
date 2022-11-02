@@ -54,7 +54,7 @@ namespace AI
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private IEnumerator OnCollisionEnter(Collision collision)
         {
             if (collision.collider.CompareTag("Ground") && !Landed)
             {
@@ -63,6 +63,8 @@ namespace AI
                 _audioSource.SafePlayOneShot(RoarSound, "RoarInitial");
                 //TODO:screen shake, particles
                 Landed = true;
+                yield return new WaitForSeconds(1f);
+                Sounds.Instance.Play();
                 SetState(GrendelState.Following);
             }
         }

@@ -12,14 +12,34 @@ public class UIManager : MonoBehaviour
     
     private void Start()
     {
-        PlayerHealth.OnHealthChange += delegate(float f)
+        PlayerHealth.OnHealthChange += OnPlayerHealthChange;
+
+        GrendelHealth.OnGrendelHurt += OnGrendelHealthChange;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHealth.OnHealthChange -= OnPlayerHealthChange;
+
+        GrendelHealth.OnGrendelHurt -= OnGrendelHealthChange;
+    }
+
+    public void OnPlayerHealthChange(float f)
+    {
+        Debug.Log("Player healtj");
+        if (f < 0)
         {
-            PlayerHealthText.text = $"Health_Player: {(int)f}";
-        };
-        
-        GrendelHealth.OnGrendelHurt += delegate(int i, int i1)
+            f = 0;
+        }
+        PlayerHealthText.text = $"Beowulf Health: {(int)f}";
+    }
+    
+    public void OnGrendelHealthChange(int i, int i1)
+    {
+        if (i1 < 0)
         {
-            EnemyHealthtext.text = $"Health_Grendel: {(int)i1}";
-        };
+            i1 = 0;
+        }
+        EnemyHealthtext.text = $"Grendel Health: {(int)i1}";
     }
 }
