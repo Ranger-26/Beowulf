@@ -5,9 +5,10 @@ namespace Player
 {
     public class PlayerHealth : MonoBehaviour
     {
-        [SerializeField]
-        private float _health;
+        public float Health { get; private set; }
 
+                
+        
         public static PlayerHealth Instance;
 
         public bool IsDead;
@@ -35,11 +36,11 @@ namespace Player
 
         public void RemoveHealth(float amount)
         {
-            if (_health < 0) return;
-            _health -= amount;
-            OnHealthChange?.Invoke(_health);
-            Debug.Log($"New health: {_health}");
-            if (_health <= 0)
+            if (Health < 0) return;
+            Health -= amount;
+            OnHealthChange?.Invoke(Health);
+            Debug.Log($"New health: {Health}");
+            if (Health <= 0)
             {
                 IsDead = true;
                 OnPlayerDie?.Invoke();
@@ -48,13 +49,13 @@ namespace Player
 
         public void AddHealth(int amount)
         {
-            _health += amount;
-            if (_health > 100)
+            Health += amount;
+            if (Health > 100)
             {
-                _health = 100;
+                Health = 100;
             }
-            OnHealthChange?.Invoke(_health);
-            Debug.Log($"New health: {_health}");
+            OnHealthChange?.Invoke(Health);
+            Debug.Log($"New health: {Health}");
         }
         
         

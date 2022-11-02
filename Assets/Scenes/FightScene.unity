@@ -2297,6 +2297,11 @@ PrefabInstance:
       propertyPath: PunchHitSound
       value: 
       objectReference: {fileID: 8300000, guid: 1e3312d22540aa14597a1fb4739f2782, type: 3}
+    - target: {fileID: 352181117065359897, guid: ed402d3da61197e40a5250b54c956f77,
+        type: 3}
+      propertyPath: TakeDamage
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a62f3fab66aef443a8dbeeb7002266b, type: 3}
     - target: {fileID: 1438546959266459337, guid: ed402d3da61197e40a5250b54c956f77,
         type: 3}
       propertyPath: m_RootOrder

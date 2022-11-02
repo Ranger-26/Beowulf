@@ -34,17 +34,25 @@ namespace Player
             AudioSource = GetComponent<AudioSource>();
             _animator = GetComponent<Animator>();
             PlayerHealth.OnPlayerDie += OnPlayerDie;
+            PlayerHealth.OnHealthChange += OnPlayerTakeDamage;
         }
 
         private void OnDestroy()
         {
             PlayerHealth.OnPlayerDie -= OnPlayerDie;
+            PlayerHealth.OnHealthChange -= OnPlayerTakeDamage;
         }
 
         public void OnPlayerDie()
         {
             _animator.Play("Death");
             AudioSource.SafePlayOneShot(DieSound, "Death");
+        }
+
+        public void OnPlayerTakeDamage(float d)
+        {
+            if (PlayerHealth.Instance.Health <= 0 || PlayerHealth.Instance.Health == 100) return;
+            AudioSource.SafePlayOneShot(TakeDamage, "PlayerTakeDamage");
         }
     }
 }

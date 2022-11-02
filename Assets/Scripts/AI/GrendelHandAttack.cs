@@ -7,6 +7,7 @@ namespace AI
     public class GrendelHandAttack : MonoBehaviour
     {
         public int BaseHandDamage = 50;
+
         public void OnTriggerEnter(Collider other)
         {
             if (Grendel.Instance.State != GrendelState.Attacking)
