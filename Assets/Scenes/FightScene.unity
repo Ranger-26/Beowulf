@@ -7982,10 +7982,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 43618770, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: GrendelDamage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 398866990, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: hitAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e989cc91820b3eb429576404f338d14b, type: 3}
     - target: {fileID: 398866990, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: BaseHandDamage
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 1684298096, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
+      propertyPath: hitAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e968c6ef8536cba4e98d5c8f4fdb9ccf, type: 3}
     - target: {fileID: 1684298096, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
       propertyPath: BaseHandDamage
       value: 20
@@ -8076,6 +8088,11 @@ PrefabInstance:
       objectReference: {fileID: 285597650}
     - target: {fileID: 2770400504288114492, guid: 8f134914040894e49b81fe83781c9c75,
         type: 3}
+      propertyPath: AttackRoar
+      value: 
+      objectReference: {fileID: 8300000, guid: 423017d00c638b84eb736467289f6363, type: 3}
+    - target: {fileID: 2770400504288114492, guid: 8f134914040894e49b81fe83781c9c75,
+        type: 3}
       propertyPath: RotateSpeed
       value: 50
       objectReference: {fileID: 0}
@@ -8084,6 +8101,11 @@ PrefabInstance:
       propertyPath: collisionDamage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2770400504288114492, guid: 8f134914040894e49b81fe83781c9c75,
+        type: 3}
+      propertyPath: InitialRoarSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 51c471696c4d8eb4fb32d4cdd9cc61c8, type: 3}
     - target: {fileID: 2770400504288114492, guid: 8f134914040894e49b81fe83781c9c75,
         type: 3}
       propertyPath: collisionDamageDelay

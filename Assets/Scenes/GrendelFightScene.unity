@@ -1435,6 +1435,11 @@ PrefabInstance:
       propertyPath: RotateSpeed
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 2770400504288114492, guid: 8f134914040894e49b81fe83781c9c75,
+        type: 3}
+      propertyPath: InitialRoarSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 51c471696c4d8eb4fb32d4cdd9cc61c8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f134914040894e49b81fe83781c9c75, type: 3}
 --- !u!1001 &864059268

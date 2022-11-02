@@ -34,10 +34,6 @@ namespace AI
 
         public AudioClip AttackRoar;
 
-        
-        
-        public AudioClip DeadRoar;
-
         private void Awake()
         {
             if (Instance == null)
@@ -120,6 +116,7 @@ namespace AI
                     animator.SetTrigger("Follow");
                     break;
                 case GrendelState.Attacking:
+                    _audioSource.SafePlayOneShot(AttackRoar, "GrendelAttack");
                     State = GrendelState.Attacking;
                     Debug.Log("Setting attack 1 triggger");
                     animator.SetTrigger("Attack1");

@@ -23,14 +23,14 @@ namespace Player
 
         public float PunchCooldown = 2f;
 
-        private AudioSource _audioSource;
+        public AudioSource AudioSource;
         
         public AudioClip PunchSound;
         
         private void Start () {
             _rig = GetComponent<Rigidbody> ();
             _animator = GetComponent<Animator>();
-            _audioSource = GetComponent<AudioSource>();
+            AudioSource = GetComponent<AudioSource>();
             _rig.freezeRotation = true;
             _canPunch = true;
         }
@@ -47,14 +47,14 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.Mouse0) && _canPunch)
             {
                 _animator.Play("PunchLeft");
-                _audioSource.SafePlayOneShot(PunchSound, "Punch");
+                AudioSource.SafePlayOneShot(PunchSound, "Punch");
                 StartCoroutine(ResetPunchRoutine());
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse1) && _canPunch)
             {
                 _animator.Play("PunchRight");
-                _audioSource.SafePlayOneShot(PunchSound, "Punch");
+                AudioSource.SafePlayOneShot(PunchSound, "Punch");
                 StartCoroutine(ResetPunchRoutine());
             }
         }

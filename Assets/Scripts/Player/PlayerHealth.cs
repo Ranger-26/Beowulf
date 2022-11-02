@@ -7,7 +7,7 @@ namespace Player
     {
         public float Health { get; private set; }
 
-                
+        public PlayerRigidbodyController PlayerCtlr;
         
         public static PlayerHealth Instance;
 
@@ -27,6 +27,7 @@ namespace Player
 
         private void Start()
         {
+            PlayerCtlr = GetComponent<PlayerRigidbodyController>();
             AddHealth(100);
         }
 
